@@ -19,7 +19,7 @@
 // *бюджет на отдел рассчитывается в виде суммы бюджета всех проектов отдела
 
 import { dep } from "./data";
-import { TDeps, TDetails, TParams, TProj } from './types';
+import { TDep, TDetail, TParams, TProject } from './types';
 
 type TResult = {
   projectName: string,

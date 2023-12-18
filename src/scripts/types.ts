@@ -1,26 +1,23 @@
 export type TParams = {
-  width: number,
-  height: number,
-  weight: number
-}
+  width: number;
+  height: number;
+  weight: number;
+};
 
-export type TDetails = [
-  {
-  title: string,
-  params: TParams
-}
-]
+export type TDetail = {
+  title: string;
+  params: TParams;
+};
 
-export type TProj = [
-  name: string,
-  details: TDetails[],
-  mainEngineer: string,
-  deadline: string,
-]
+export type TProject = {
+  name: string;
+  details: TDetail[];
+  mainEngineer: string;
+  deadline: string;
+};
 
-export type TDeps = {
-  tech: TProj,
-  turbo: TProj,
-  chemical: TProj
-
-}
+export type TDep = {
+  tech: TProject[];
+  turbo: TProject[];
+  chemical: TProject[];
+};

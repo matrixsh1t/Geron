@@ -1,6 +1,6 @@
-import {TDeps} from "./types";
+import {TDep} from "./types";
 
-export const dep = {
+export const dep: TDep= {
   tech: [
     {
       name: "Проект Автоматизации",
