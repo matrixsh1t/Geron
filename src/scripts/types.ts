@@ -5,8 +5,10 @@ export type TParams = {
 }
 
 export type TDetails = [
+  {
   title: string,
   params: TParams
+}
 ]
 
 export type TProj = [
