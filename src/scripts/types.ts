@@ -1,27 +1,24 @@
-export type TSeason = {
-  closeProjects: number;
-  income: number;
-  hired: number;
-  dismissed: number;
-  newProjects: number;
-};
+export type TParams = {
+  width: number,
+  height: number,
+  weight: number
+}
 
-export type seasonList = {
-  winter: TSeason;
-  summer: TSeason;
-  autumn: TSeason;
-  spring: TSeason;
-};
+export type TDetails = [
+  title: string,
+  params: TParams
+]
 
-export type TEmployee = {
-  name: string;
-  departament: string;
-  experience: number;
-  isClosedProjects: boolean;
-  salary: number;
-};
+export type TProj = [
+  name: string,
+  details: TDetails[],
+  mainEngineer: string,
+  deadline: string,
+]
 
-export type TDepAndEmplNum = {
-  title: string;
-  employees: number;
-};
+export type TDeps = {
+  tech: TProj,
+  turbo: TProj,
+  chemical: TProj
+
+}

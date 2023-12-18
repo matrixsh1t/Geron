@@ -1,3 +1,5 @@
+import {TDeps} from "./types";
+
 export const dep = {
   tech: [
     {
