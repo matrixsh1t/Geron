@@ -21,3 +21,11 @@ export type TDep = {
   turbo: TProject[];
   chemical: TProject[];
 };
+
+export type TResult = {
+  projectName: string,
+  detailName: string,
+  detailPrice: number,
+  projectBudget: number,
+  devider: string
+}

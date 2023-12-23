@@ -19,14 +19,31 @@
 // *бюджет на отдел рассчитывается в виде суммы бюджета всех проектов отдела
 
 import { dep } from "./data";
-import { TDep, TDetail, TParams, TProject } from './types';
+import { TDep, TDetail, TParams, TProject, TResult } from './types';
 
-type TResult = {
-  projectName: string,
-  detailName: string,
-  detailPrice: number,
-  projectBudget: number,
-  devider: string
+const getProjectBudget = (project: TProject): number => {
+  let projectBudget = 0;
+
+  project.details.forEach((detail) => {
+    const detailCost = detail.params.width * detail.params.height / detail.params.weight * 150
+    projectBudget += detailCost;  
+  });
+  return projectBudget
+}
+
+const getDepBudget = () => {
+  let departmentBudget = 0;
+
+  Object.entries(dep).forEach(([department, projects]) => {
+    console.log(`--- ${department} Dep ---`);
+    projects.forEach((project) => {
+      departmentBudget += getProjectBudget(project);
+      
+  })
+  console.log(`Total Budget for ${department} Department: $${departmentBudget.toFixed(0)}`);
+  console.log("- - - - -");
+  departmentBudget = 0
+  });
 }
 
 export const getResult = () => {
@@ -34,37 +51,29 @@ export const getResult = () => {
   let detailName: string;
   let detailPrice: number;
   let projectBudget: number;
+  let result: TResult;
 
-  Object.entries(dep).forEach(([k,v]) => {
-    // deps
-    projectName = k;
-    console.log(k);
-    console.log(v);
-    let dep = v.forEach(element => {
-      // projects
-      projectName = element.name
-      console.log(k);
-      console.log(v);
-      Object.entries(element).forEach(([k,v]) => {
-        // details
-        console.log(k);
-        console.log(v);
-        Object.entries(v).forEach(([k,v]) => {
-          // params
-          console.log(k);
-          console.log(v);
-          detailName = k;
-          
-          
-        })
-        
-        
+Object.entries(dep).forEach(([department, projects]) => {
+  projects.forEach(project => {
+    projectName = project.name
+    project.details.forEach(detail => {
+      detailName = detail.title
+      Object.entries(detail).forEach(([title, params]) => {
+        detailPrice = detail.params.width * detail.params.height / detail.params.weight * 150
+        projectBudget = getProjectBudget(project)
       })
-      
-    })
     
-    
+    result = {
+      projectName: projectName,
+      detailName: detailName,
+      detailPrice: detailPrice,
+      projectBudget: projectBudget,
+      devider: "- - - - -"
+    }
+    //printout results
+    console.log(result);
   })
-  console.log(projectName, detailName, );
-  
-}
+  })
+  //printout budget for each dep
+  getDepBudget()
+})}
