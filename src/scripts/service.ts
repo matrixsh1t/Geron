@@ -36,13 +36,21 @@ export const getResult = () => {
   let projectBudget: number;
 
   Object.entries(dep).forEach(([k,v]) => {
+    // deps
     projectName = k;
+    console.log(k);
+    console.log(v);
     let dep = v.forEach(element => {
+      // projects
       projectName = element.name
+      console.log(k);
+      console.log(v);
       Object.entries(element).forEach(([k,v]) => {
+        // details
         console.log(k);
         console.log(v);
         Object.entries(v).forEach(([k,v]) => {
+          // params
           console.log(k);
           console.log(v);
           detailName = k;
