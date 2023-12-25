@@ -181,3 +181,47 @@ export const employees: TEmployee[] = [
     salary: 800000,
   },
 ];
+
+export const employeesTest: TEmployee[] = [
+  {
+    name: "John",
+    departament: "TECH",
+    experience: 3,
+    isClosedProjects: true,
+    salary: 10,
+  },
+  {
+    name: "Alice",
+    departament: "DESIGN",
+    experience: 1,
+    isClosedProjects: false,
+    salary: 20,
+  },
+  {
+    name: "Michael",
+    departament: "DESIGN",
+    experience: 7,
+    isClosedProjects: true,
+    salary: 20,
+  },
+  {
+    name: "Emma",
+    departament: "PROJECT",
+    experience: 2,
+    isClosedProjects: true,
+    salary: 30,
+  },
+  {
+    name: "David",
+    departament: "PROJECT",
+    experience: 4,
+    isClosedProjects: false,
+    salary: 30,
+  },
+  {
+    name: "Sophia",
+    departament: "PROJECT",
+    experience: 5,
+    isClosedProjects: true,
+    salary: 30,
+  }]
