@@ -25,3 +25,10 @@ export type TDepAndEmplNum = {
   title: string;
   employees: number;
 };
+
+export interface IUser {
+  name: string;
+  age: number;
+  isActive: boolean;
+  sallary: number;
+}
