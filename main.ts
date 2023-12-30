@@ -85,29 +85,69 @@ type TUser = {
 };
 
 const getData = async () => {
-    return fetch("https://jsonplaceholder.typicode.com/posts/1/comments")
-}
+  return fetch("https://jsonplaceholder.typicode.com/posts/1/comments");
+};
 
 const getResult = async () => {
-    let data: TUser[] = await (await getData()).json()
-    return data
-}
+  let data: TUser[] = await (await getData()).json();
+  return data;
+};
 
 const findUser = async () => {
-    let users: TUser[] = await getResult()
-    let userBody: TUser | null = null;
+  let users: TUser[] = await getResult();
+  let userBody: TUser | null = null;
 
-    users.forEach(user => {
-        if (!userBody || userBody.body.length < user.body.length) {
-            userBody = user
-        }
-    })
-    return userBody
+  users.forEach((user) => {
+    if (!userBody || userBody.body.length < user.body.length) {
+      userBody = user;
+    }
+  });
+  return userBody;
+};
+
+findUser()
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+// ===================== HW =====================
+console.log("===================== HW =====================");
+// Получить данные по ссылке.
+// В данной задаче нужно будет начислить добавку активным сотрудникам +10% от зарплаты,
+// отсортировать все по убыванию и вывести в консоль
+// Ссылка: https://run.mocky.io/v3/a27db518-069d-45a3-8fac-938b5c2228d1
+
+interface IUser {
+  name: string;
+  age: number;
+  isActive: boolean;
+  sallary: number;
 }
 
-findUser().then((data)=> {
+const getLinkData = async () => {
+  return fetch("https://run.mocky.io/v3/a27db518-069d-45a3-8fac-938b5c2228d1");
+};
+
+const getUserData = async () => {
+    const userData = (await (await getLinkData()).json()) as IUser[];
+    let tempUserArray: IUser[] = []
+
+    userData.forEach(user => {
+        if (!user || user.isActive) {
+            user.sallary = Number(user.sallary) + Number(user.sallary) * 0.1
+            tempUserArray.push(user)
+        } else {
+            user.sallary = Number(user.sallary)
+            tempUserArray.push(user)
+        }
+    })
+    return tempUserArray
+}
+
+getUserData().then( (data) => {
     console.log(data);
-}).catch((error) => {
-    console.log(error);
     
 })
