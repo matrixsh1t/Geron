@@ -120,15 +120,6 @@ findUser()
 // отсортировать все по убыванию и вывести в консоль
 // Ссылка: https://run.mocky.io/v3/a27db518-069d-45a3-8fac-938b5c2228d1
 
-import { getUserData } from "./src/scripts/service";
+import { getUserData, callFunc } from "./src/scripts/service";
 
-
-getUserData().then( (data) => {
-    console.log("===================== HW =====================");
-    console.log(data);
-}).catch((error) => {
-    console.log(error);
-}
-).finally(() => {
-    console.log("Calculation is finished");
-})
+callFunc(getUserData)

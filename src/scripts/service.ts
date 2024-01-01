@@ -7,6 +7,7 @@ const getLinkData = async () => {
 
 export const getUserData = async () => {
       const userData = (await (await getLinkData()).json()) as IUser[];
+      let result: IUser[] =[]
       let tempUserArray: IUser[] = []
   
       userData.forEach(user => {
@@ -18,5 +19,21 @@ export const getUserData = async () => {
               tempUserArray.push(user)
           }
       })
-      return tempUserArray
+      
+      result = tempUserArray.sort((a, b) => {
+        return a.sallary-b.sallary;
+      })
+
+      return result
   }
+
+  export const callFunc = (myFunc: Function) => {
+    myFunc().then( (data) => {
+    console.log("===================== HW =====================");
+    console.log(data);
+}).catch((error) => {
+    console.log(error);
+}
+).finally(() => {
+    console.log("Calculation is finished");
+})}
