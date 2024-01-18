@@ -1,5 +1,5 @@
 import storage from "../data/storage.json"
-import { TStorage } from "../scripts/types/types"
+import { TStorage } from "../scripts/types"
 
 
   export class Storage {
