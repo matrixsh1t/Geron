@@ -13,39 +13,41 @@ export interface IShop {
 }
 
 export interface IClient {
-    id: string,
-    firstname: string,
-    lastname: string
+  id: string;
+  firstname: string;
+  lastname: string;
 }
 
-export type TDeliveryType = | {
-    street: string,
-    house: string,
-    entrance?: string,
-    floor?: string,
-    appartment: number,
-    comment?: string
-} | {
-    pointName: string,
-    address: string,
-}
+export type TDeliveryType =
+  | {
+      street: string;
+      house: string;
+      entrance?: string;
+      floor?: string;
+      appartment: number;
+      comment?: string;
+    }
+  | {
+      pointName: string;
+      address: string;
+    };
 
 export interface IDelivery {
-    dateTime: Date,
-    type: TDeliveryType
+  dateTime: Date;
+  type: TDeliveryType;
 }
 
 export type TBasketProduct = {
-    shopId: string,
-} & IProduct
+  shopId: string;
+} & IProduct;
 
 export interface IBasket {
-    products: TBasketProduct[],
-    total: number
+  products: TBasketProduct[];
+  total: number;
 }
 
 export interface IOrder {
-    client: IClient,
-    delivery: IDelivery,
-    basket: IBasket
+  client: IClient;
+  delivery: IDelivery;
+  basket: IBasket;
 }
